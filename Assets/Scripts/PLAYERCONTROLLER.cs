@@ -16,7 +16,7 @@ public class PLAYERCONTROLLER : MonoBehaviour
 
     void Update()
     {
-        translation = Input.GetAxis("Vertical") * 10f;
+        translation = Input.GetAxis("Vertical") * 15f;
         rotation = Input.GetAxis("Horizontal") * 100f;
 
         transform.Translate(0, 0, translation * Time.deltaTime);
@@ -37,6 +37,12 @@ public class PLAYERCONTROLLER : MonoBehaviour
         if (collision.collider.tag == "Obstacle")
         {
             ani.SetTrigger("damage");
+            GameManager.instance.AddScore(-1);
+        }
+        if (collision.collider.tag == "Enermy")
+        {
+            ani.SetTrigger("attack01");
+            GameManager.instance.OnPlayerDead();
         }
     }
 }
