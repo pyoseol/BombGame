@@ -7,6 +7,7 @@ TagManager:
   - obstacle
   - Obstacle
   - Enermy
+  - Bullet
   layers:
   - Default
   - TransparentFX
